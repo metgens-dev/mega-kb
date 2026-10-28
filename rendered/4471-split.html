@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<style>aside.svelte-17bri61{border-left:4px solid var(--accent);padding:.5rem 1rem;margin:1rem 0;background:var(--note-bg)}aside.warn.svelte-17bri61{border-color:var(--warn);background:var(--warn-bg)}
+</style>
+		<style>.sum.svelte-xskqqx{font-size:1.1rem}.tags.svelte-xskqqx,.note.svelte-xskqqx{color:var(--muted);font-size:.85em}.owner.svelte-xskqqx td:where(.svelte-xskqqx):first-child{font-weight:600}.stamp.svelte-1280m42{margin:2rem 0 0;font:.85rem var(--mono);color:var(--muted)}.stamp.svelte-1280m42 b:where(.svelte-1280m42){color:var(--accent);letter-spacing:.04em}.missing.svelte-1280m42{color:var(--warn)}
+</style>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[0--><!--[--><!--[--><p>Ticket <a href="/kb/incidents/4471">#4471</a> is marked known: one parser bug, one fix queued. Read by cause,
+the reports inside it are <strong>two problems, not one</strong>. One of them is the parser. The other only
+looks like it.</p> <h2>The split</h2> <p class="sum svelte-xskqqx"><strong>427</strong> export rows · <strong>412</strong> unique reports merged into
+  #4471 · <strong>2</strong> causes</p> <table><thead><tr><th>cause</th><th>reports</th><th>tenants</th><th>channels</th><th>tagged as</th><th>seen</th><th></th></tr></thead><tbody><!--[--><tr class="svelte-xskqqx owner"><td class="svelte-xskqqx"><code>parser</code></td><td class="svelte-xskqqx">379</td><td class="svelte-xskqqx">11</td><td class="svelte-xskqqx">app 204 · email 150 · form 25</td><td class="tags svelte-xskqqx">parser ×356 · hint ×23</td><td class="svelte-xskqqx">2026-04-01 → 2026-10-04</td><td class="svelte-xskqqx">#4471 as merged</td></tr><tr class="svelte-xskqqx"><td class="svelte-xskqqx"><code>hint</code></td><td class="svelte-xskqqx">33</td><td class="svelte-xskqqx">3</td><td class="svelte-xskqqx">form 33</td><td class="tags svelte-xskqqx">hint ×18 · parser ×15</td><td class="svelte-xskqqx">2026-04-17 → 2026-09-22</td><td class="svelte-xskqqx">own ticket — not this one</td></tr><!--]--></tbody></table> <!--[--><!--[0--><p class="note svelte-xskqqx">5 reports read as a one-day move; filed under <code>parser</code> by tenant.</p><!--]--><!--[-1--><!--]--><!--]--><!----> <p>The <code>parser</code> rows are the ticket’s bug: the shared parser reads dates month first, and a day-first
+tenant’s dates come out with the month flipped. Every tenant on file is hit.</p> <p>The <code>hint</code> rows are a <strong>second bug wearing the first one’s subject line</strong>. On the <code>booking-v3</code> form the hint under the date field says <code>MM/DD/YYYY</code>; day-first tenants’ people read what the
+tenant writes — day first — into a field that was told month first. Different code, different fix,
+and it reaches the desk only through that form, from the tenants that run it. The desk’s rule, <a href="/kb/decisions/0001-dedupe-by-subject">decision 0001</a>, merges on the subject line alone.</p> <aside class="warn svelte-17bri61"><!---->Two bugs, one subject line. Merging on subject — decision 0001, duplicates share a subject line —
+cannot tell them apart: both arrive saying the booking landed on the wrong day.<!----></aside><!----> <h2>Why the count says 412 and the export says more</h2> <p>The export ships in overlapping pages, so some reports come twice. One id, one report — the
+numbers above are counted after dedupe, the same way the desk counts. Nothing is lost by it; a
+report filed under its cause keeps its place whichever page it arrived on.</p> <h2>What to do</h2> <ul><li>Keep #4471 for the <code>parser</code> cause: it is the larger share, and the queued fix is its fix.</li> <li>File the <code>hint</code> cause under its own ticket, so its fix is not closed with the parser’s.</li> <li>When intake’s tag and the cause disagree, the cause wins: intake tags a guess from the
+reporter’s browser, the cause comes from the tenant’s locale and form.</li></ul> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-Z3HV-58YZ</b></p><!--]--><!----><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_6k61zy = {
+						base: new URL("../../..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../../../_app/immutable/entry/start.BRWM17hr.js"),
+						import("../../../_app/immutable/entry/app.D8hTl79a.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 5],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

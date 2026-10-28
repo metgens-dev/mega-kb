@@ -1,0 +1,51 @@
+---
+layout: runbook
+title: '#4471 · one ticket, two problems'
+owner: SIGNATURE_PLACEHOLDER
+status: open
+reviewed: 2026-10-28
+signature: SIGNATURE_PLACEHOLDER
+---
+
+<script>
+  import SplitTable from '#lib/kb/SplitTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+Ticket [#4471](/kb/incidents/4471) is marked known: one parser bug, one fix queued. Read by cause,
+the reports inside it are **two problems, not one**. One of them is the parser. The other only
+looks like it.
+
+## The split
+
+<SplitTable ticket={4471} />
+
+The `parser` rows are the ticket's bug: the shared parser reads dates month first, and a day-first
+tenant's dates come out with the month flipped. Every tenant on file is hit.
+
+The `hint` rows are a **second bug wearing the first one's subject line**. On the `booking-v3`
+form the hint under the date field says `MM/DD/YYYY`; day-first tenants' people read what the
+tenant writes — day first — into a field that was told month first. Different code, different fix,
+and it reaches the desk only through that form, from the tenants that run it. The desk's rule,
+[decision 0001](/kb/decisions/0001-dedupe-by-subject), merges on the subject line alone.
+
+<Callout kind="warn">
+Two bugs, one subject line. Merging on subject — decision 0001, duplicates share a subject line —
+cannot tell them apart: both arrive saying the booking landed on the wrong day.
+</Callout>
+
+## Why the count says 412 and the export says more
+
+The export ships in overlapping pages, so some reports come twice. One id, one report — the
+numbers above are counted after dedupe, the same way the desk counts. Nothing is lost by it; a
+report filed under its cause keeps its place whichever page it arrived on.
+
+## What to do
+
+- Keep #4471 for the `parser` cause: it is the larger share, and the queued fix is its fix.
+- File the `hint` cause under its own ticket, so its fix is not closed with the parser's.
+- When intake's tag and the cause disagree, the cause wins: intake tags a guess from the
+  reporter's browser, the cause comes from the tenant's locale and form.
+
+<RenderStamp {signature} />

@@ -1,0 +1,44 @@
+== tenants on file ==
+  alder.physio     locale de-DE  form booking-v3  dayFirst true
+  copper.studio    locale es-ES  form booking-v3  dayFirst true
+  harbour.dental   locale en-GB  form booking-v2  dayFirst true
+  kettle.books     locale nl-NL  form booking-v2  dayFirst true
+  lantern.row      locale cs-CZ  form booking-v2  dayFirst true
+  long.table       locale it-IT  form booking-v2  dayFirst true
+  morrow.tax       locale fr-FR  form booking-v2  dayFirst true
+  nine.lanterns    locale pl-PL  form booking-v2  dayFirst true
+  pale.harbour     locale pt-PT  form booking-v3  dayFirst true
+  ridge.clinic     locale da-DK  form booking-v2  dayFirst true
+  stone.and.sons   locale en-IE  form booking-v2  dayFirst true
+
+== export rows vs unique ==
+  rows 427, unique 412
+  duplicated ids: 15 -> R-41251×2, R-41300×2, R-41301×2, R-41352×2, R-41353×2, R-41402×2, R-41403×2, R-41454×2, R-41455×2, R-41504×2, R-41505×2, R-41556×2, R-41557×2, R-41606×2, R-41608×2
+
+== groups in #4471 (owner cause: parser) ==
+  parser: 379 reports, 11 tenants, 2026-04-01 -> 2026-10-04
+    taggedAs: {"parser":356,"hint":23}
+    mergedInto: [4471]
+    desk read 5 of these as oneDayMove: R-41202, R-41209, R-41236, R-41344, R-41620
+  hint: 33 reports, 3 tenants, 2026-04-17 -> 2026-09-22
+    taggedAs: {"parser":15,"hint":18}
+    mergedInto: [4471]
+
+== per-group detail ==
+
+  -- parser --
+    by tenant: [["harbour.dental",52],["kettle.books",47],["lantern.row",28],["morrow.tax",40],["long.table",39],["ridge.clinic",36],["alder.physio",23],["pale.harbour",21],["copper.studio",19],["nine.lanterns",44],["stone.and.sons",30]]
+    by channel: [["app",204],["email",150],["form",25]]
+    intakeTag != cause: 23 (tagged ["hint"])
+
+  -- hint --
+    by tenant: [["copper.studio",11],["alder.physio",12],["pale.harbour",10]]
+    by channel: [["form",33]]
+    intakeTag != cause: 15 (tagged ["parser"])
+
+== desk-notes oneDayMove ids by cause ==
+  R-41202: kettle.books (nl-NL/booking-v2) via email -> cause parser (tag parser)
+  R-41209: alder.physio (de-DE/booking-v3) via app -> cause parser (tag parser)
+  R-41236: nine.lanterns (pl-PL/booking-v2) via app -> cause parser (tag parser)
+  R-41344: pale.harbour (pt-PT/booking-v3) via email -> cause parser (tag parser)
+  R-41620: lantern.row (cs-CZ/booking-v2) via email -> cause parser (tag parser)
