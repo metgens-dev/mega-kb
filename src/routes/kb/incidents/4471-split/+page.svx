@@ -1,10 +1,10 @@
 ---
 layout: runbook
 title: '#4471 · one ticket, two problems'
-owner: SIGNATURE_PLACEHOLDER
+owner: metgens
 status: open
 reviewed: 2026-10-28
-signature: SIGNATURE_PLACEHOLDER
+signature: metgens
 ---
 
 <script>
