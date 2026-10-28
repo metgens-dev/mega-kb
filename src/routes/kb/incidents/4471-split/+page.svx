@@ -4,7 +4,7 @@ title: '#4471 · one ticket, two problems'
 owner: metgens
 status: open
 reviewed: 2026-10-28
-signature: metgens
+signature: v1.eyJzdWIiOiIxNDg5IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMTY2MzgsImV4cCI6MTc5MzMwMzAzOH0.6Qvjn1dLqapiSVMIW9UzQrESdT0zSoZbEztaWUhk_XQ
 ---
 
 <script>
